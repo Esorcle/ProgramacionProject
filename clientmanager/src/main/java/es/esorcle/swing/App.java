@@ -165,10 +165,15 @@ public class App extends JFrame {
                     int row = jSearchTable.getSelectedRow();
                     int customerNumber = (int) jSearchTable.getValueAt(row, 0);
 
-                    try {
-                        ADClassicModels.removeCustomer(customerNumber);
-                    } catch (ClassicModelsException cme) {
-                        JOptionPane.showMessageDialog(null, cme.getMessage());
+                    int opcion = JOptionPane.showConfirmDialog(null, "¿Seguro que quiere eliminar el cliente?", "¡Atención!", JOptionPane.YES_NO_OPTION);
+                    if (opcion == 0) {
+                        try {
+                            ADClassicModels.removeCustomer(customerNumber);
+                            searchButtonListener(searchTable);
+                        } catch (ClassicModelsException cme) {
+                            JOptionPane.showMessageDialog(null, cme.getMessage());
+                        }
+
                     }
                 }
             }
@@ -385,6 +390,7 @@ public class App extends JFrame {
         setSize(800, 500);
         setLocationRelativeTo(null);
         actionButton = ActionButton.NEW_CUSTOMER;
+        saveCustomerButton.setVisible(true);
 
         jIdCustomer.setEditable(true);
         jNameCustomer.setEditable(true);
@@ -422,6 +428,7 @@ public class App extends JFrame {
      * @param tableModel La tabla donde se volvará los datos devueltos por la base de datos.
      */
     private void searchButtonListener(DefaultTableModel tableModel) {
+        tableModel.setRowCount(0);
         try {
             List<Customer> customersList = ADClassicModels.getCustomersList(jSearch.getText());
 

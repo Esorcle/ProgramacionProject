@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8917005b-a837-49a1-b806-5b8d923a8ec2" name="Default Changelist" comment="" />
+    <list default="true" id="8917005b-a837-49a1-b806-5b8d923a8ec2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/esorcle/swing/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/esorcle/swing/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/es/esorcle/swing/db/dao/ADClassicModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/es/esorcle/swing/db/dao/ADClassicModels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/esorcle/swing/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/es/esorcle/swing/db/dao/ADClassicModels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/es/esorcle/swing/db/dao/ADClassicModels.class" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,11 +33,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1cqqBRMcdPdbpefYXRGfvASzSmB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="401" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../clientmanager2/clientmanager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
@@ -80,7 +98,7 @@
       <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-11.0.7" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="es.esorcle.swing.StartApp" />
-      <module name="client-manager" />
+      <module name="clientmanager" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="es.esorcle.swing.*" />
@@ -117,13 +135,24 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/es/esorcle/swing/App.java</url>
-          <line>203</line>
-          <option name="timeStamp" value="17" />
+          <url>file://$PROJECT_DIR$/src/main/java/es/esorcle/swing/db/dao/ADClassicModels.java</url>
+          <line>210</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

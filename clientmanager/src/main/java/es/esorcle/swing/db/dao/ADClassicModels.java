@@ -204,18 +204,83 @@ public class ADClassicModels {
         Connection connection = ConnectionDB.getConnection();
         boolean removed = false;
 
-        try {
-            String sqlRemoveCustomer = "DELETE FROM customers WHERE customerNumber = ?";
-            PreparedStatement stRemoveCustomer = connection.prepareStatement(sqlRemoveCustomer);
-            stRemoveCustomer.setInt(1, customerNumber);
+        if (existCustomer(customerNumber)) {
+            try {
+                connection.setAutoCommit(false);
 
-            int ok = stRemoveCustomer.executeUpdate();
+                String sqlPayment = "DELETE FROM payments WHERE customerNumber = ?";
+                PreparedStatement stPayment = connection.prepareStatement(sqlPayment);
+                stPayment.setInt(1,customerNumber);
 
-            if (ok != 0) {
-                removed = true;
+                int payment = stPayment.executeUpdate();
+
+                String sqlOrders = "SELECT orderNumber FROM orders WHERE customerNumber = ? ";
+                PreparedStatement stOrders = connection.prepareStatement(sqlOrders);
+                stOrders.setInt(1,customerNumber);
+
+                ResultSet rsOders = stOrders.executeQuery();
+
+                String lista = "(";
+                List<Integer> ordersDetailsList = new ArrayList<>();
+                while(rsOders.next()) {
+                    int orderNumber = rsOders.getInt("orderNumber");
+                    ordersDetailsList.add(orderNumber);
+                    lista += "?,";
+                }
+
+                if(!ordersDetailsList.isEmpty()) {
+                    lista= lista.substring(0,lista.length()-1);
+                    lista = lista + ")";
+
+                    String sqlOrderDetails = "DELETE FROM orderdetails WHERE orderNumber IN " + lista;
+                    PreparedStatement stOrderDetails = connection.prepareStatement(sqlOrderDetails);
+                    int cont = 1;
+                    for (Integer number : ordersDetailsList) {
+                        stOrderDetails.setInt(cont, number);
+                        cont++;
+                    }
+
+                    int removeDetails = stOrderDetails.executeUpdate();
+
+                    String sqlRemoveOrders = "DELETE FROM orders WHERE customerNumber = ?";
+                    PreparedStatement stRemoveOrders = connection.prepareStatement(sqlRemoveOrders);
+                    stRemoveOrders.setInt(1, customerNumber);
+
+                    int remove = stRemoveOrders.executeUpdate();
+
+                }
+
+                    String sqlRemoveCustomer = "DELETE FROM customers WHERE customerNumber = ?";
+                    PreparedStatement stRemoveCustomer = connection.prepareStatement(sqlRemoveCustomer);
+                    stRemoveCustomer.setInt(1, customerNumber);
+
+                    int ok = stRemoveCustomer.executeUpdate();
+
+                    if (ok != 0) {
+                        removed = true;
+                        connection.commit();
+                    }
+
+            } catch (SQLException e) {
+                try {
+                    if (connection != null) {
+                        System.out.println("Dejamos la BD en su estado inicial");
+                        connection.rollback();
+                    }
+                } catch (SQLException ex) {
+                    System.out.println("Error en el rollback");
+                    ex.printStackTrace();
+                }
+                e.printStackTrace();
+                throw new ClassicModelsException("No se ha podido borrar el cliente. Vuelva a intentarlo");
+            } finally {
+                try {
+                    connection.setAutoCommit(true);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (SQLException e) {
-            throw new ClassicModelsException("No se ha podido borrar el cliente. Vuelva a intentarlo");
+
         }
         return removed;
     }
@@ -385,33 +450,33 @@ public class ADClassicModels {
         Connection connection = ConnectionDB.getConnection();
         List<Payment> paymentList = new ArrayList<>();
 
-        try {
-            String sqlPaymentCustomerList = "SELECT * FROM payments WHERE customerNumber = ?";
-            PreparedStatement stPaymentCustomersList = connection.prepareStatement(sqlPaymentCustomerList);
-            stPaymentCustomersList.setInt(1, customerNumber);
+            try {
+                String sqlPaymentCustomerList = "SELECT * FROM payments WHERE customerNumber = ?";
+                PreparedStatement stPaymentCustomersList = connection.prepareStatement(sqlPaymentCustomerList);
+                stPaymentCustomersList.setInt(1, customerNumber);
 
-            ResultSet rsPaymentsCustomerList = stPaymentCustomersList.executeQuery();
+                ResultSet rsPaymentsCustomerList = stPaymentCustomersList.executeQuery();
 
-            Payment payment = null;
-            Customer customer = null;
+                Payment payment = null;
+                Customer customer = null;
 
-            while (rsPaymentsCustomerList.next()) {
+                while (rsPaymentsCustomerList.next()) {
 
-                payment = new Payment();
-                customer = new Customer();
-                customer.setCustomerNumber(rsPaymentsCustomerList.getInt("customerNumber"));
+                    payment = new Payment();
+                    customer = new Customer();
+                    customer.setCustomerNumber(rsPaymentsCustomerList.getInt("customerNumber"));
 
-                payment.setCustomer(customer);
-                payment.setCheckNumber(rsPaymentsCustomerList.getString("checkNumber"));
-                payment.setPaymentDate(rsPaymentsCustomerList.getDate("paymentDate"));
-                payment.setAmount(rsPaymentsCustomerList.getDouble("amount"));
+                    payment.setCustomer(customer);
+                    payment.setCheckNumber(rsPaymentsCustomerList.getString("checkNumber"));
+                    payment.setPaymentDate(rsPaymentsCustomerList.getDate("paymentDate"));
+                    payment.setAmount(rsPaymentsCustomerList.getDouble("amount"));
 
-                paymentList.add(payment);
+                    paymentList.add(payment);
+                }
+
+            } catch (SQLException e) {
+                throw new ClassicModelsException("No se ha podido mostrar la lista de pagos. Vuelva a intentarlo");
             }
-
-        } catch (SQLException e) {
-            throw new ClassicModelsException("No se ha podido mostrar la lista de pagos. Vuelva a intentarlo");
-        }
         return paymentList;
     }
 

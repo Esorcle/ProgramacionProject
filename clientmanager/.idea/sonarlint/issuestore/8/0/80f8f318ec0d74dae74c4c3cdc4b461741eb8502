@@ -1,18 +1,34 @@
 
 P
-java:S1481Æ"2Remove this unused "existCustomer" local variable.(ªµë8ùòÚø©.
-F
-java:S1148É"#Use a logger to log this exception.(™À¡·ûÿÿÿÿ8ùòÚø©.
-r
-java:S1192¯"ODefine a constant instead of duplicating this literal "customerNumber" 3 times.(¿µÓÑøÿÿÿÿ8Ç®ôí©.
-K
-java:S1125‹"(Remove the literal "true" boolean value.(Ä©Îùÿÿÿÿ8ùòÚø©.
-h
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ò•Âù
-Y	java:S125ê"<This block of commented-out lines of code should be removed.(èÿ·Ê8ùòÚø©.
-W
-java:S1118":Add a private constructor to hide the implicit public one.(¸Ş¹¦8³—Øí©.
-F
-java:S1148È"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ùòÚø©.
+java:S1481‡"2Remove this unused "existCustomer" local variable.(ªµë8ùòÚø©.
 N
 java:S1068"1Remove this unused "decimalFormat" private field.( Áî8ßÙñ©.
+?
+java:S1643ä"Use a StringBuilder instead.(Êè­ÿÿÿÿÿ8ö¾¾˜«.
+P
+java:S1481ó"2Remove this unused "removeDetails" local variable.(¿Îº¡8ö¾¾˜«.
+I
+java:S1481×",Remove this unused "payment" local variable.(é½ÂQ8ö¾¾˜«.
+A
+java:S1148"#Use a logger to log this exception.(Ç’Çê8ö¾¾˜«.
+u
+java:S3776Ë"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(“Úèøşÿÿÿÿ8ö¾¾˜«.
+Y	java:S125«"<This block of commented-out lines of code should be removed.(èÿ·Ê8ùòÚø©.
+W
+java:S1118":Add a private constructor to hide the implicit public one.(¸Ş¹¦8³—Øí©.
+N
+java:S1481ù"+Remove this unused "remove" local variable.(Ò££øùÿÿÿÿ8ö¾¾˜«.
+F
+java:S1148‰"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ùòÚø©.
+K
+java:S1125Ì"(Remove the literal "true" boolean value.(Ä©Îùÿÿÿÿ8ùòÚø©.
+F
+java:S1148Š"#Use a logger to log this exception.(™À¡·ûÿÿÿÿ8ùòÚø©.
+F
+java:S1148’"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ö¾¾˜«.
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ò•Âù
+r
+java:S1192¯"ODefine a constant instead of duplicating this literal "customerNumber" 3 times.(¿µÓÑøÿÿÿÿ8Ç®ôí©.
+F
+java:S1148˜"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ö¾¾˜«.
