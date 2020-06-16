@@ -10,6 +10,7 @@ import java.sql.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PropertyResourceBundle;
 
 public class ADClassicModels {
     /**
@@ -21,6 +22,7 @@ public class ADClassicModels {
     /**
      * Método para insertar un nuevo cliente.
      * Comprueba si ya existe en la base de datos.
+     *
      * @param customer Cliente a insertar.
      * @return Si se ha podido realizar la operación o no.
      * @throws ClassicModelsException Al no poder realizar la operación.
@@ -154,7 +156,9 @@ public class ADClassicModels {
         return updated;
     }
 
-    /** Método para obtener los datos de un cliente
+    /**
+     * Método para obtener los datos de un cliente
+     *
      * @param customerNumber Número de cliente.
      * @return El cliente.
      * @throws ClassicModelsException Al no poder realizar la operación.
@@ -196,6 +200,7 @@ public class ADClassicModels {
 
     /**
      * Método para eliminar un cliente.
+     *
      * @param customerNumber Número de cliente a eliminar.
      * @return Si se ha podido realizar la operación o no.
      * @throws ClassicModelsException Al no poder realizar la operación.
@@ -227,15 +232,15 @@ public class ADClassicModels {
                     ordersDetailsList.add(orderNumber);
                     lista += "?,";
                 }
+                lista= lista.substring(0,lista.length()-1);
 
+                lista = lista + ")";
                 if(!ordersDetailsList.isEmpty()) {
-                    lista= lista.substring(0,lista.length()-1);
-                    lista = lista + ")";
 
                     String sqlOrderDetails = "DELETE FROM orderdetails WHERE orderNumber IN " + lista;
                     PreparedStatement stOrderDetails = connection.prepareStatement(sqlOrderDetails);
                     int cont = 1;
-                    for (Integer number : ordersDetailsList) {
+                    for (Integer number: ordersDetailsList) {
                         stOrderDetails.setInt(cont, number);
                         cont++;
                     }
@@ -248,8 +253,6 @@ public class ADClassicModels {
 
                     int remove = stRemoveOrders.executeUpdate();
 
-                }
-
                     String sqlRemoveCustomer = "DELETE FROM customers WHERE customerNumber = ?";
                     PreparedStatement stRemoveCustomer = connection.prepareStatement(sqlRemoveCustomer);
                     stRemoveCustomer.setInt(1, customerNumber);
@@ -260,6 +263,7 @@ public class ADClassicModels {
                         removed = true;
                         connection.commit();
                     }
+                }
 
             } catch (SQLException e) {
                 try {
@@ -287,6 +291,7 @@ public class ADClassicModels {
 
     /**
      * Método para conocer la lista de clientes que coincide con el parámetro de la búsqueda
+     *
      * @param busqueda Parámetro de búsqueda.
      * @return lista de clientes.
      * @throws ClassicModelsException Al no poder realizar la operación.
@@ -361,7 +366,7 @@ public class ADClassicModels {
     /**
      * Método para asignar un vendedor a un cliente.
      *
-     * @param salesId Número del vendedor.
+     * @param salesId    Número del vendedor.
      * @param customerId Número del cliente.
      * @return Si se ha podido realizar la operación o no.
      * @throws ClassicModelsException Al no poder realizar la operación.
@@ -375,20 +380,20 @@ public class ADClassicModels {
             boolean existed;
             existed = existEmployee(salesId);
 
-                if (existed) {
-                    String sqlAssignSales = "UPDATE customers SET salesRepEmployeeNumber = ? WHERE customerNumber = ?";
-                    PreparedStatement statementAssignSales = connection.prepareStatement(sqlAssignSales);
-                    statementAssignSales.setInt(1, salesId);
-                    statementAssignSales.setInt(2, customerId);
+            if (existed) {
+                String sqlAssignSales = "UPDATE customers SET salesRepEmployeeNumber = ? WHERE customerNumber = ?";
+                PreparedStatement statementAssignSales = connection.prepareStatement(sqlAssignSales);
+                statementAssignSales.setInt(1, salesId);
+                statementAssignSales.setInt(2, customerId);
 
-                    int returnAssignSales = statementAssignSales.executeUpdate();
+                int returnAssignSales = statementAssignSales.executeUpdate();
 
-                    if (returnAssignSales != 0) {
-                        update = true;
-                    }
-                } else {
-                    throw new ClassicModelsException("No existe ese vendedor");
+                if (returnAssignSales != 0) {
+                    update = true;
                 }
+            } else {
+                throw new ClassicModelsException("No existe ese vendedor");
+            }
         } catch (SQLException e) { //Atrapo la excepción de fallos en SQL que nada le importa al user
             e.printStackTrace();
             throw new ClassicModelsException("No se ha posdido realizar la consulta");
@@ -399,6 +404,7 @@ public class ADClassicModels {
     /**
      * Método para conocer la lista de los vendedores existentes.
      * En beta para añadir funcionalidad a la aplicación.
+     *
      * @return Lista de vendedores.
      * @throws ClassicModelsException Al no poder realizar la operación.
      */
@@ -441,6 +447,7 @@ public class ADClassicModels {
 
     /**
      * Método para obter la lista de pagos de un cliente.
+     *
      * @param customerNumber Número de cliente.
      * @return Lista de pagos asociados al cliente.
      * @throws ClassicModelsException Al no poder realizar la operación.
@@ -450,38 +457,39 @@ public class ADClassicModels {
         Connection connection = ConnectionDB.getConnection();
         List<Payment> paymentList = new ArrayList<>();
 
-            try {
-                String sqlPaymentCustomerList = "SELECT * FROM payments WHERE customerNumber = ?";
-                PreparedStatement stPaymentCustomersList = connection.prepareStatement(sqlPaymentCustomerList);
-                stPaymentCustomersList.setInt(1, customerNumber);
+        try {
+            String sqlPaymentCustomerList = "SELECT * FROM payments WHERE customerNumber = ?";
+            PreparedStatement stPaymentCustomersList = connection.prepareStatement(sqlPaymentCustomerList);
+            stPaymentCustomersList.setInt(1, customerNumber);
 
-                ResultSet rsPaymentsCustomerList = stPaymentCustomersList.executeQuery();
+            ResultSet rsPaymentsCustomerList = stPaymentCustomersList.executeQuery();
 
-                Payment payment = null;
-                Customer customer = null;
+            Payment payment = null;
+            Customer customer = null;
 
-                while (rsPaymentsCustomerList.next()) {
+            while (rsPaymentsCustomerList.next()) {
 
-                    payment = new Payment();
-                    customer = new Customer();
-                    customer.setCustomerNumber(rsPaymentsCustomerList.getInt("customerNumber"));
+                payment = new Payment();
+                customer = new Customer();
+                customer.setCustomerNumber(rsPaymentsCustomerList.getInt("customerNumber"));
 
-                    payment.setCustomer(customer);
-                    payment.setCheckNumber(rsPaymentsCustomerList.getString("checkNumber"));
-                    payment.setPaymentDate(rsPaymentsCustomerList.getDate("paymentDate"));
-                    payment.setAmount(rsPaymentsCustomerList.getDouble("amount"));
+                payment.setCustomer(customer);
+                payment.setCheckNumber(rsPaymentsCustomerList.getString("checkNumber"));
+                payment.setPaymentDate(rsPaymentsCustomerList.getDate("paymentDate"));
+                payment.setAmount(rsPaymentsCustomerList.getDouble("amount"));
 
-                    paymentList.add(payment);
-                }
-
-            } catch (SQLException e) {
-                throw new ClassicModelsException("No se ha podido mostrar la lista de pagos. Vuelva a intentarlo");
+                paymentList.add(payment);
             }
+
+        } catch (SQLException e) {
+            throw new ClassicModelsException("No se ha podido mostrar la lista de pagos. Vuelva a intentarlo");
+        }
         return paymentList;
     }
 
     /**
      * Método para comprobar si existe el empleado en la base de datos.
+     *
      * @param employeeNumber Número de empleado.
      * @return Si el empledado existe o no.
      * @throws ClassicModelsException Al no poder realizar la operación.
@@ -508,6 +516,7 @@ public class ADClassicModels {
 
     /**
      * Método para comprobar si existe el cliente en la base de datos.
+     *
      * @param customerNumber Número de cliente.
      * @return Si el cliente existe o no.
      * @throws ClassicModelsException Al no poder realizar la operación.
@@ -517,7 +526,7 @@ public class ADClassicModels {
         boolean existed = false;
         try {
             Customer existCustomer = getCustomer(customerNumber);
-            existed=true;
+            existed = true;
         } catch (ClassicModelsException cme) {
             cme.printStackTrace();
         }

@@ -94,7 +94,7 @@ public class App extends JFrame {
         connectButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                connectButtonListener();
+                connectButtonListener(originalBorder);
             }
         });
 
@@ -251,6 +251,7 @@ public class App extends JFrame {
 
     /**
      * Método que recoge y valida los datos introducidos del cliente.
+     *
      * @return un Customer.
      */
     private Customer getCustomerData() {
@@ -285,6 +286,7 @@ public class App extends JFrame {
     /**
      * Método para el evento del payButton.
      * Muestra los pagos del cliente y su total.
+     *
      * @param payTable La tabla donde se volvará los datos recibidos de la base de datos.
      */
     private void payButtonListener(DefaultTableModel payTable) {
@@ -390,7 +392,6 @@ public class App extends JFrame {
         setSize(800, 500);
         setLocationRelativeTo(null);
         actionButton = ActionButton.NEW_CUSTOMER;
-        saveCustomerButton.setVisible(true);
 
         jIdCustomer.setEditable(true);
         jNameCustomer.setEditable(true);
@@ -428,7 +429,6 @@ public class App extends JFrame {
      * @param tableModel La tabla donde se volvará los datos devueltos por la base de datos.
      */
     private void searchButtonListener(DefaultTableModel tableModel) {
-        tableModel.setRowCount(0);
         try {
             List<Customer> customersList = ADClassicModels.getCustomersList(jSearch.getText());
 
@@ -503,13 +503,12 @@ public class App extends JFrame {
      *
      * @param
      */
-    private void connectButtonListener() {
+    private void connectButtonListener(Border originalBorder) {
 
-        // boolean notError = validateFieldConnection(originalBorder);
-        boolean notError = true;
+        boolean notError = validateFieldConnection(originalBorder);
+
         if (notError) {
-            //ConnectionData connectionData = new ConnectionData(jtServer.getText().toLowerCase(), jtPort.getText(), jtDataBase.getText().toLowerCase(), jtUser.getText(), jtPass.getPassword());
-            connectionData = new ConnectionData("localhost", "3306", "classicmodels", "Fany", jtPass.getPassword());
+            connectionData = new ConnectionData(jtServer.getText().toLowerCase(), jtPort.getText(), jtDataBase.getText().toLowerCase(), jtUser.getText(), jtPass.getPassword());
 
             if (ConnectionDB.getConnection(connectionData) == null) {
                 JOptionPane.showMessageDialog(null, "Error de conexión");
