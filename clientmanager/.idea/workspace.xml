@@ -82,7 +82,7 @@
     </configuration>
     <configuration name="StartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="es.esorcle.swing.StartApp" />
-      <module name="client-manager" />
+      <module name="clientmanager" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="es.esorcle.swing.*" />

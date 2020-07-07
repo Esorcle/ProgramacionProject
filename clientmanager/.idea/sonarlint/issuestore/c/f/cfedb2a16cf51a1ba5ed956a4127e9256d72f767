@@ -1,11 +1,11 @@
 
-@
-java:S1148 "#Use a logger to log this exception.(Ç’Çê8–ö‡¨©.
-V
-java:S1118":Add a private constructor to hide the implicit public one.(Ô\8ÒˆÒ¤©.
-K
-java:S1656"/Remove or correct this useless self-assignment.(ø¿â'8ÒˆÒ¤©.
->
-java:S1643"Use a StringBuilder instead.(¥„‘Áøÿÿÿÿ8Çà…¢¨.
 ˆ
 java:S4165"lRemove this useless assignment; "connectionData" already holds the assigned value along all execution paths.(ø¿â'8ÒˆÒ¤©.
+>
+java:S1643"Use a StringBuilder instead.(¥„‘Áøÿÿÿÿ8Çà…¢¨.
+@
+java:S1148 "#Use a logger to log this exception.(Ç’Çê8–ö‡¨©.
+K
+java:S1656"/Remove or correct this useless self-assignment.(ø¿â'8ÒˆÒ¤©.
+V
+java:S1118":Add a private constructor to hide the implicit public one.(Ô\8ÒˆÒ¤©.

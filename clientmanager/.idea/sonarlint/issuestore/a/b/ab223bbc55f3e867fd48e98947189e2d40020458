@@ -1,43 +1,45 @@
 
-R
-java:S1948@"0Make "connectionData" transient or serializable.(Ò´Â½þÿÿÿÿ8§š€Ì©.
-^	java:S125Ì"<This block of commented-out lines of code should be removed.(Úíöªûÿÿÿÿ8íßü—«.
-s
-java:S1192\"VDefine a constant instead of duplicating this literal "Seleccione un cliente" 3 times.(¹Ëéâ8Õ›¢ø©.
 ]	java:S110"<This class has 6 parents which is greater than 5 authorized.(¦ØŠµùÿÿÿÿ8§š€Ì©.
-K
-java:S1604ž"(Make this anonymous inner class a lambda(˜ä…ðüÿÿÿÿ8Õ›¢ø©.
-t
-java:S3776I"RRefactor this method to reduce its Cognitive Complexity from 50 to the 15 allowed.(ÑëËÿÿÿÿÿ8¡åâò©.
+F
+java:S1604è"(Make this anonymous inner class a lambda(ó º‘8íßü—«.
 E
-java:S1604q"(Make this anonymous inner class a lambda(¥«™å8Õ›¢ø©.
-K
-java:S1604•"(Make this anonymous inner class a lambda(ò¾Ú¹úÿÿÿÿ8Õ›¢ø©.
-D
-java:S1604i"(Make this anonymous inner class a lambda(õïD8Õ›¢ø©.
-K
-java:S1604Æ"(Make this anonymous inner class a lambda(Œ´’œýÿÿÿÿ8íßü—«.
-F
-java:S1604ô"(Make this anonymous inner class a lambda(–ÇÕÕ8íßü—«.
-F
-java:S1604¶"(Make this anonymous inner class a lambda(ˆö°ã8íßü—«.
-
-java:S1450@"]Remove the "connectionData" field and declare it as a local variable in the relevant methods.(Ò´Â½þÿÿÿÿ8±¤Ÿ“«.
-F
-java:S1604ç"(Make this anonymous inner class a lambda(ó º‘8íßü—«.
-k
-java:S3252N"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öþÿÿÿÿ8¡åâò©.
-E
-java:S1604y"(Make this anonymous inner class a lambda(Ý¼Éà8Õ›¢ø©.
-R
-java:S1066‰"/Merge this if statement with the enclosing one.(Åøé÷øÿÿÿÿ8Õ›¢ø©.
-p
-java:S3776“"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÏÛÇö8íßü—«.
-E
-java:S1604^"(Make this anonymous inner class a lambda(•ƒØ·8Õ›¢ø©.
-R
-java:S1066„"/Merge this if statement with the enclosing one.(ë·‚ªÿÿÿÿÿ8Õ›¢ø©.
-F
-java:S1604½"(Make this anonymous inner class a lambda(²û‚8íßü—«.
+java:S1604z"(Make this anonymous inner class a lambda(Ý¼Éà8Õ›¢ø©.
 u
-java:S1450B"XRemove the "jPayTable" field and declare it as a local variable in the relevant methods.(Ç¨ª8æåÈö©.
+java:S1450C"XRemove the "jPayTable" field and declare it as a local variable in the relevant methods.(Ç¨ª8æåÈö©.
+K
+java:S1604–"(Make this anonymous inner class a lambda(ò¾Ú¹úÿÿÿÿ8Õ›¢ø©.
+E
+java:S1604r"(Make this anonymous inner class a lambda(¥«™å8Õ›¢ø©.
+R
+java:S1066Š"/Merge this if statement with the enclosing one.(Åøé÷øÿÿÿÿ8Õ›¢ø©.
+E
+java:S1604_"(Make this anonymous inner class a lambda(•ƒØ·8Õ›¢ø©.
+
+java:S1450A"]Remove the "connectionData" field and declare it as a local variable in the relevant methods.(Ò´Â½þÿÿÿÿ8±¤Ÿ“«.
+F
+java:S1604õ"(Make this anonymous inner class a lambda(–ÇÕÕ8íßü—«.
+R
+java:S1066…"/Merge this if statement with the enclosing one.(ë·‚ªÿÿÿÿÿ8Õ›¢ø©.
+K
+java:S1604Ç"(Make this anonymous inner class a lambda(Œ´’œýÿÿÿÿ8íßü—«.
+R
+java:S1948A"0Make "connectionData" transient or serializable.(Ò´Â½þÿÿÿÿ8§š€Ì©.
+p
+java:S3776”"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(ÏÛÇö8íßü—«.
+t
+java:S3776J"RRefactor this method to reduce its Cognitive Complexity from 50 to the 15 allowed.(ÑëËÿÿÿÿÿ8¡åâò©.
+F
+java:S1604·"(Make this anonymous inner class a lambda(ˆö°ã8íßü—«.
+^	java:S125Í"<This block of commented-out lines of code should be removed.(Úíöªûÿÿÿÿ8íßü—«.
+D
+java:S1604j"(Make this anonymous inner class a lambda(õïD8Õ›¢ø©.
+k
+java:S3252O"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(Õû»öþÿÿÿÿ8¡åâò©.
+F
+java:S1604¾"(Make this anonymous inner class a lambda(²û‚8íßü—«.
+s
+java:S1192]"VDefine a constant instead of duplicating this literal "Seleccione un cliente" 3 times.(¹Ëéâ8Õ›¢ø©.
+K
+java:S1604Ÿ"(Make this anonymous inner class a lambda(˜ä…ðüÿÿÿÿ8Õ›¢ø©.
+L
+java:S1068@"*Remove this unused "table1" private field.(’¸Þ¢ÿÿÿÿÿ8âÒÈŒ¬.

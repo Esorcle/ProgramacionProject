@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="jPanelMain" layout-manager="GridLayoutManager" row-count="7" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="20" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="718" height="1468"/>
+      <xy x="20" y="20" width="718" height="1518"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -218,14 +218,6 @@
               <text value="Eliminar"/>
             </properties>
           </component>
-          <component id="6c42e" class="javax.swing.JButton" binding="addSalesButton">
-            <constraints>
-              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Añadir Vendedor"/>
-            </properties>
-          </component>
           <vspacer id="bd7dc">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
@@ -247,6 +239,14 @@
             </constraints>
             <properties>
               <text value="Pagos"/>
+            </properties>
+          </component>
+          <component id="6c42e" class="javax.swing.JButton" binding="addSalesButton">
+            <constraints>
+              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Añadir Vendedor"/>
             </properties>
           </component>
         </children>
@@ -562,14 +562,33 @@
             </constraints>
             <properties/>
           </component>
-          <grid id="2f587" binding="jPayTablePanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="2f587" binding="jPayTablePanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="10cf" class="javax.swing.JTable" binding="table1" default-binding="true">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <hspacer id="930d7">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <vspacer id="50d23">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+            </children>
           </grid>
           <component id="1c660" class="javax.swing.JLabel">
             <constraints>

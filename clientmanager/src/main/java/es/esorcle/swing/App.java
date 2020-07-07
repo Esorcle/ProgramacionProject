@@ -61,6 +61,7 @@ public class App extends JFrame {
     private JTextField jPayCustomerName;
     private JTextField jTotalPayments;
     private JPanel jPayTablePanel;
+    private JTable table1;
     private ConnectionData connectionData;
     private JTable jSearchTable;
     private JTable jPayTable;
